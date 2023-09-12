@@ -1,25 +1,32 @@
 import 'dart:io';
 
-void main(){
-  print("Please enter a number");
+void main() {
+  print("please enter a number to generate the sequance");
   int num = int.parse(stdin.readLineSync()!);
-  primeNum(num);
-  
+  List<int> fib_list = fibonacci(num);
+  print('The first $num Fibonacci numbers are: $fib_list');
 }
 
-void primeNum(num){
-  int m=0;
-  int flag=0;
-  m=num~/2;
-  for(int i = 2;i<=m;i++){
-    if(num%i == 0){
-      print('is not a prime number');
-      flag = 1;
-      break;
-    }
+
+List<int> fibonacci(int num) {
+  if (num <= 0) {
+    print("Please enter a number above 0");
   }
-  if(flag==0){
-    print('is prime number');
+
+  List<int> fib_seq = [1, 1];
+
+  if (num == 1) {
+    return [1];
+  } else if (num == 2) {
+    return fib_seq;
   }
+
+  for (int i = 2; i < num; i++) {
+    int sum = fib_seq[i - 1] + fib_seq[i - 2];
+    fib_seq.add(sum);
+  }
+
+  return fib_seq;
 }
+
 
