@@ -1,0 +1,42 @@
+import 'dart:io';
+
+
+void main(){
+print("Enter size of the list");
+
+sortList();
+  
+
+}
+
+void sortList(){
+
+final List numbers = [];
+final List new_list = [];
+  
+int size = int.parse(stdin.readLineSync()!);
+  
+for (int i =0; i<size;i++){
+  int? input;
+  print("enter numbers");
+  do{
+
+    input = int.parse(stdin.readLineSync()??"");
+    
+  
+  
+}
+while(input==null);
+
+  numbers.add(input);
+  
+}
+
+int firstNum = numbers[0];
+int lastNum = numbers[numbers.length-1];
+new_list.add(firstNum);
+new_list.add(lastNum);
+print(new_list);
+}
+
+
